@@ -14,7 +14,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::get();
+        return view('index', compact('users'));
     }
 
     /**
@@ -24,18 +25,25 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('form');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Patients a newly created a user.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+      User::create($request->only('name', 'email'));
+      return redirect()->route('users.index');
+    }
+
+    public function patientsSave(Request $request)
+    {
+        User:create($request->only('name', 'email'));
+        return redirect()->route('user.index');
     }
 
     /**
@@ -46,7 +54,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('show');
     }
 
     /**
@@ -57,7 +65,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('form', compact('user'));
     }
 
     /**
@@ -69,7 +77,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->only('name', 'email'));
+        return redirect()->route('users.index');
     }
 
     /**
