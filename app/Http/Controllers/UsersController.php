@@ -37,7 +37,7 @@ class UsersController extends Controller
     public function store(PatientRequest $request)
     {
       User::create($request->only('name', 'email'));
-      return redirect()->route('users.index');
+      return redirect()->route('users.index')->withSuccess('Created patient ' .$request->name);
     }
 
     public function patientsSave(Request $request)
@@ -78,7 +78,7 @@ class UsersController extends Controller
     public function update(PatientRequest $request, User $user)
     {
         $user->update($request->only('name', 'email'));
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->withSuccess('Updated patient ' .$user->name);
     }
 
     /**
@@ -90,6 +90,6 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->withDanger('Deleted patient ' .$user->name);
     }
 }
