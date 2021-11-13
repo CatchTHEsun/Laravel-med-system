@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\PatientRequest;
 
 class UsersController extends Controller
 {
@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $users = User::paginate();
         return view('index', compact('users'));
     }
 
@@ -34,7 +34,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(PatientRequest $request)
     {
       User::create($request->only('name', 'email'));
       return redirect()->route('users.index');
@@ -75,7 +75,7 @@ class UsersController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(PatientRequest $request, User $user)
     {
         $user->update($request->only('name', 'email'));
         return redirect()->route('users.index');
