@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\PatientRequest;
+use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -36,13 +37,28 @@ class UsersController extends Controller
      */
     public function store(PatientRequest $request)
     {
-      User::create($request->only('name', 'email'));
-      return redirect()->route('users.index')->withSuccess('Created patient ' .$request->name);
+        $request->validate([
+            'name' =>'required',
+            'email' =>'required',
+            'image' =>'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $imageForSave = time() . '-' . $request->name . '.'.
+        $request->image->extension();
+
+        $testDd = $request->image->move(public_path('images'), $imageForSave);
+
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'image_path' => $imageForSave,
+        ]);
+        return redirect()->route('users.index')->withSuccess('Created patient ' .$request->name);
     }
 
     public function patientsSave(Request $request)
     {
-        User:create($request->only('name', 'email'));
+        User::create($request->only('name', 'email'));
         return redirect()->route('user.index');
     }
 
