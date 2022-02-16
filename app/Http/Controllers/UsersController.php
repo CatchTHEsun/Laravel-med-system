@@ -43,10 +43,9 @@ class UsersController extends Controller
             'image' =>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
-        $imageForSave = time() . '-' . $request->name . '.'.
-        $request->image->extension();
+        $imageForSave = time() . '-' . $request->name . '.'.$request->image->extension();
 
-        $testDd = $request->image->move(public_path('images'), $imageForSave);
+        $request->image->move(public_path('images'), $imageForSave);
 
         User::create([
             'name' => $request->input('name'),
@@ -93,7 +92,21 @@ class UsersController extends Controller
      */
     public function update(PatientRequest $request, User $user)
     {
-        $user->update($request->only('name', 'email'));
+        $request->validate([
+            'name' =>'required',
+            'email' =>'required',
+            'image' =>'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $imageForSave = time() . '-' . $request->name . '-' . random_int(-10000, 0). '.' .$request->image->extension();
+        $request->image->move(public_path('images'), $imageForSave);
+
+        User::where('name', $user->name)
+            ->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'image_path' => $imageForSave,
+            ]);
         return redirect()->route('users.index')->withSuccess('Updated patient ' .$user->name);
     }
 
