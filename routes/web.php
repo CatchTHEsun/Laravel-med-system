@@ -19,5 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('users', UsersController::class);
-Route::get('calendar-event', [CalenderController::class, 'index']);
+Route::get('calendar', [CalenderController::class, 'index']);
 Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);

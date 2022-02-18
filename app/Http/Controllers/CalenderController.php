@@ -16,7 +16,7 @@ class CalenderController extends Controller
                 ->get(['id', 'event_name', 'event_start', 'event_end']);
             return response()->json($data);
         }
-        return view('welcome');
+        return view('calendar');
     }
 
 
