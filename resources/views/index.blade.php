@@ -24,7 +24,11 @@
         @foreach($users as $user)
             <tr>
                 <th scope="row">{{$user->id}}</th>
+                @if ($user->image_path == '')
+                      <td><img src="{{ asset('images/' . "ava-p1.png" )}}" width="40" height="40" alt="photo"></td>
+                @else
                 <td><img src="{{ asset('images/' . $user->image_path)}}" width="40" height="40" alt="photo"></td>
+                @endif
                 <td>
                     <a href="{{ route('users.show', $user) }}">{{$user->name}}</a>
                 </td>
