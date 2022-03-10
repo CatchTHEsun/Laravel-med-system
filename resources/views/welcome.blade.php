@@ -23,7 +23,9 @@
             </span>
         </div>
         <div class="col">
-            <span class="border border-info justify-content-center">Doctors</span>
+            <a href="./doctor" class="text-decoration-none">
+                <span class="bi bi-activity"> Doctors</span>
+            </a>
         </div>
         <div class="col">
             <span class="">
