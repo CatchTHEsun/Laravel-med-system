@@ -3,6 +3,7 @@
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalenderController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('users', UsersController::class);
+Route::resource('doctor', DoctorController::class);
 Route::get('calendar', [CalenderController::class, 'index']);
 Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
