@@ -20,6 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('users', UsersController::class);
-Route::resource('doctor', DoctorController::class);
+Route::resource('doctors', DoctorController::class);
 Route::get('calendar', [CalenderController::class, 'index']);
 Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);

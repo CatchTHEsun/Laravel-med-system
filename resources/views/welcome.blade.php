@@ -23,7 +23,7 @@
             </span>
         </div>
         <div class="col">
-            <a href="./doctor" class="text-decoration-none">
+            <a href="./doctors" class="text-decoration-none">
                 <span class="bi bi-activity"> Doctors</span>
             </a>
         </div>
