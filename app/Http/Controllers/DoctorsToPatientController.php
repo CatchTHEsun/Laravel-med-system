@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\DoctorsToPatient;
 use App\Http\Requests\PatientRequest;
 
 class DoctorsToPatientController extends Controller
@@ -22,40 +23,38 @@ class DoctorsToPatientController extends Controller
     public function store(PatientRequest $request)
     {
         $request->validate([
-            'name' =>'required',
-            'email' =>'required',
-            'profession'=>'required',
-            'image' =>'required|mimes:jpg,png,jpeg|max:5048'
+            'doctors_id' =>'required',
+            'patients_id' =>'required',
         ]);
 
-        $imageForSave = time() . '-' . $request->name . '.'.$request->image->extension();
-
-        $request->image->move(public_path('images'), $imageForSave);
-
-        Doctor::create([
-            'name' => $request->input('name'),
-            'profession' => $request->input('profession'),
-            'email' => $request->input('email'),
-            'image_path' => $imageForSave,
+        DoctorsToPatient::create([
+            'doctors_id' => $request->input('doctors_id'),
+            'patients_id' => $request->input('patients_id'),
         ]);
-        return redirect()->route('doctors.index')->withSuccess('Created doctor ' .$request->name);
+        return redirect()->route('doctors.index')->withSuccess('Added');
     }
 
-    public function edit(Doctor $doctor)
-    {
-        return view('doctors_form', compact('doctor'));
+    public function edit(Request $request)
+    {   
+        //$patients_id = $request->get('patient_id');
+        //dd($request->ip());
+        $doctors_id = '22';
+        $patients_name = $request->get('patient_name');
+ 
+        DoctorsToPatient::create([
+            'doctors_id' => $doctors_id,
+            'patients_id' => $request->get('patient_id'),
+        ]);
+        return redirect()->route('doctorstopatients.index')->withSuccess($patients_name.' Added!');
+        //return view('doctors_form', compact('doctor'));
     }
 
     public function update(PatientRequest $request, Doctor $doctor)
     {
         $request->validate([
             'name' =>'required',
-            'email' =>'required',
-            'image' =>'required|mimes:jpg,png,jpeg|max:5048'
+            'email' =>'required'
         ]);
-
-        $imageForSave = time() . '-' . $request->name . '-' . random_int(-10000, 0). '.' .$request->image->extension();
-        $request->image->move(public_path('images'), $imageForSave);
 
         Doctor::where('name', $doctor->name)
             ->update([

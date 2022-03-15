@@ -55,7 +55,7 @@
                 </td>
                 <td>
                     <form method="POST" action="{{ route('users.destroy', $user) }}">
-                        <a href="{{ route('users.edit', $user) }}" type="button" class="btn btn-primary">Add</a>
+                        <a href="{{ route('doctorstopatients.edit', $user) }}?patient_id= {{$user->id}}&patient_name= {{$user->name}}" type="button" class="btn btn-primary">Add</a>
                         @csrf
                     </form>
                 </td>

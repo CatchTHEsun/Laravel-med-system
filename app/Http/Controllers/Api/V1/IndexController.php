@@ -17,4 +17,5 @@ class IndexController extends Controller
     {
         return Fullness::all();
     }
+
 }
