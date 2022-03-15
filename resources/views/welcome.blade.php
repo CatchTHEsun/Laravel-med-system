@@ -43,5 +43,21 @@
         </div>
         </div>
     </div>
+
+    <div class="container mt-5" style="max-width: 700px">
+        <div class="row">
+        <div class="col">
+            <span class="">
+                <a href="./" class="text-decoration-none">
+                    <i class="bi bi-person"></i> Patients menu
+                </a>
+            </span>
+        </div>
+        <div class="col">
+            <a href="./doctorstopatients" class="text-decoration-none">
+                <span class="bi bi-activity"> Doctors menu</span>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
