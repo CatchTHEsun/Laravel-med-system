@@ -48,14 +48,15 @@
                 <td><img src="{{ asset('images/' . $user->image_path)}}" width="40" height="40" alt="photo"></td>
                 @endif
                 <td>
-                    <a href="{{ route('users.show', $user) }}">{{$user->name}}</a>
+                <a href="{{ route('users.show', $user->id) }}">{{$user->name}}</a>
                 </td>
                 <td>
-                    <a href="{{ route('users.show', $user) }}">{{$user->email}}</a>
+                    <a href="#">{{$user->email}}</a>
                 </td>
                 <td>
-                    <form method="POST" action="{{ route('users.destroy', $user) }}">
-                        <a href="{{ route('doctorstopatients.edit', $user) }}?patient_id= {{$user->id}}&patient_name= {{$user->name}}" type="button" class="btn btn-primary">Add</a>
+                    <form method="POST" action="#">
+                       <a href="{{ route('doctorstopatients.edit', $user->id) }}?patient_id= {{$user->id}}&patient_name= {{$user->name}}" type="button" class="btn btn-primary">Add</a> 
+                     
                         @csrf
                     </form>
                 </td>
@@ -64,5 +65,5 @@
         </tbody>
     </table>
 
-    {{ $users->links() }}
+   {{ $users->links() }} 
 @endsection

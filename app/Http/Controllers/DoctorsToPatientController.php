@@ -6,13 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\DoctorsToPatient;
 use App\Http\Requests\PatientRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class DoctorsToPatientController extends Controller
 {
     public function index()
     {
-        $users = User::paginate();
-        return view('doctors_to_patients', compact('users'));
+       // $users = User::paginate();
+
+        
+        $users=DB::table('users')
+                        ->leftjoin('doctors_to_patients', 'users.id', '=', 'doctors_to_patients.patients_id')
+                        ->where('doctors_to_patients.patients_id','=',null)
+                        ->select('users.*')
+                        ->paginate(20);
+
+        return view('doctors_to_patients', ['users' => $users]);
     }
 
     public function create()
