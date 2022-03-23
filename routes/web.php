@@ -23,5 +23,17 @@ Route::get('/', function () {
 Route::resource('users', UsersController::class);
 Route::resource('doctors', DoctorController::class);
 Route::resource('doctorstopatients', DoctorsToPatientController::class);
+
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/test', function () {
+        return view('welcome');
+    });
+});
+
+
 Route::get('calendar', [CalenderController::class, 'index']);
 Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
