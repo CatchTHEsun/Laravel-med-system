@@ -45,6 +45,12 @@
                     <i class="bi bi-box-arrow-in-up-left"></i> Api
                 </a>     
         </li>
+        <li class="nav-item">
+        <a href="./graphql-playground" class="text-decoration-none nav-link">
+                    <i class="bi bi-asterisk"></i> GraphQL
+                </a>   
+        </li>
+        
       </ul>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -158,6 +164,13 @@
             <span class="">
                 <a href="./api/v1" class="text-decoration-none">
                     <i class="bi bi-box-arrow-in-up-left"></i> Api
+                </a>
+            </span>
+        </div>
+        <div class="col">
+            <span class="">
+                <a href="./graphql-playground" class="text-decoration-none">
+                    <i class="bi bi-box-arrow-in-up-left"></i> GraphQL
                 </a>
             </span>
         </div>
