@@ -50,6 +50,11 @@
                     <i class="bi bi-asterisk"></i> GraphQL
                 </a>   
         </li>
+        <li class="nav-item">
+        <a href="./graphql-playground" class="text-decoration-none nav-link">
+                    <i class="bi bi-info"></i> info
+                </a>   
+        </li>
         
       </ul>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
