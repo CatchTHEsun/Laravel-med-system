@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorsToPatientController;
+use App\Http\Controllers\Api\V2\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents'])
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('api/v2', [IndexController::class, 'index']);
+Route::get('api/v2/all', [IndexController::class, 'all']);
