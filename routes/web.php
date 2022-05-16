@@ -41,3 +41,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('api/v2', [IndexController::class, 'index']);
 Route::get('api/v2/all', [IndexController::class, 'all']);
+Route::middleware('auth.api')->get('api/v2/user/{id}', [IndexController::class, 'user']);
+
