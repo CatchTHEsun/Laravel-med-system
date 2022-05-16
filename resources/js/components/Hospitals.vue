@@ -1,6 +1,6 @@
 <template>
     <h1>
-        Hospitals Vue
+        Hospitals Vue123
     </h1>
 </template>
 
