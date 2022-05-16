@@ -14,7 +14,7 @@
 <body>
 
 <div id="app">
-    <Hospitals></Hospitals>
+    <Hospitals>123</Hospitals>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
