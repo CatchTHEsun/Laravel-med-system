@@ -8,9 +8,15 @@
 </p>
 
 ## About
+
 1.Laravel
 2.Vue.js
 3.GraphQL
+
+## Instal
+
+1.Migrations
+2.Seeders
 
 ## License
 
