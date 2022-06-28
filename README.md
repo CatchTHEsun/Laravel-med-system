@@ -11,7 +11,7 @@ guzzle 7.4.5.
 
 ## About
 
-1.Laravel
+1.Laravel <br>
 2.Vue.js
 3.GraphQL
 
@@ -19,6 +19,12 @@ guzzle 7.4.5.
 
 1.Migrations
 2.Seeders
+
+## Packs
+
+1.Jetsteam
+2.Laravel-permission
+3.GraphQL - lighthouse
 
 ## License
 
