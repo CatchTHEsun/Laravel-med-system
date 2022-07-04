@@ -49,14 +49,12 @@ class UsersController extends Controller
         
         $imageForSave = time() . '-' . $request->name . '-' . random_int(-10000, 0). '.' .$request->image->extension();
         $request->image->move(public_path('images'), $imageForSave);
-        $imageForSave1 = "12214";
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'image_path' => $imageForSave,
             'current_team_id' => 5,
         ]);
-        dd($imageForSave);
         return redirect()->route('users.index')->withSuccess('Created patient ' .$request->name);
     }
 

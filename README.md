@@ -14,7 +14,7 @@ guzzle 7.4.5.
 <img src="https://i120.fastpic.org/big/2022/0629/7a/520cdc44c26d02848b90f1c869565b7a.png" alt="screen">
 </p>
 1.Laravel <br>
-2.Vue.js
+2.Vue.js <br>
 3.GraphQL
 
 ## Instal
@@ -24,9 +24,9 @@ guzzle 7.4.5.
 
 ## Packs
 
-1.Jetsteam
-2.Laravel-permission
-3.GraphQL - lighthouse
+1.Jetsteam<br>
+2.Laravel-permission<br>
+3.GraphQL - lighthouse<br>
 
 ## License
 
@@ -34,5 +34,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Api token
 
-Api token in 'config/apitokens'
-Warning! One key.
+Api token in 'config/apitokens'<br>
+Warning! One key. Dev version.
