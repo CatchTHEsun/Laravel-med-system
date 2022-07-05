@@ -36,3 +36,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 Api token in 'config/apitokens'<br>
 Warning! One key. Dev version.
+
+// Adding permissions to a user <br>
+$user->givePermissionTo('edit articles');<br>
+
+// Adding permissions via a role <br>
+$user->assignRole('writer'); <br>
+
+$role->givePermissionTo('edit articles');
