@@ -19,8 +19,8 @@ guzzle 7.4.5.
 
 ## Instal
 
-1.Migrations
-2.Seeders
+1.Migrations </br>
+2.Seeder (30k)
 
 ## Packs
 
