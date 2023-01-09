@@ -44,3 +44,7 @@ $user->givePermissionTo('edit articles');<br>
 $user->assignRole('writer'); <br>
 
 $role->givePermissionTo('edit articles');
+
+## New
+
+New Vue.js integration.
