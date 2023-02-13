@@ -14,7 +14,7 @@
 <body>
 
 <div id="app">
-    <Hospitals>1234</Hospitals>
+    <Hospitals>Vue.js <b>off</b></Hospitals>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
