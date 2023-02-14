@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return User::orderByDesc('id')->first();
+        return User::orderByDesc('id')->firstOrFail();
     }
 
     public function all()
