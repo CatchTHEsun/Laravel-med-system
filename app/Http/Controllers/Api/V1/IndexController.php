@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return Fullness::orderByDesc('id')->first();
+        return Fullness::orderByDesc('id')->firstOrFail();
     }
 
     public function all()
